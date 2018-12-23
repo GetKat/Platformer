@@ -51,8 +51,11 @@ class Player(pg.sprite.Sprite):
         self.change_x += 10
     def go_left(self):
         self.change_x -= 10
-    def jump(self):
-        self.change_y -= 10
     def stop(self):
         self.change_x = 0
+    def jump(self):
+        # precisa saber se o player esta no chao
+        height = self.level.get_height()
+        if(self.rect.bottom == height):
+            self.change_y -= 10
 
