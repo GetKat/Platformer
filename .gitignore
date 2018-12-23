@@ -1,6 +1,7 @@
 # debug files (no further use)
 teste.py
 player2.py
+rect.py
 site.py
 
 *.pyc
