@@ -1,6 +1,7 @@
 import pygame as pg
 import sys
 
+from level import Level
 from player import Player
 # from player2 import Player
 
@@ -29,8 +30,12 @@ def main():
     
     # player object
     player = Player()
-    player.level = screen
     sprites.add(player)
+
+    # level object
+    level = Level(player, WIDTH, HEIGHT)
+    player.level = level
+    
 
     # clock
     clock = pg.time.Clock()
@@ -66,10 +71,12 @@ def main():
 
         screen.fill(gray)
         sprites.update()
+        level.update()
 
         # ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
 
         # current_level.draw(screen)
+        level.draw(screen)
         sprites.draw(screen)
  
         # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
